@@ -1,21 +1,26 @@
 const trackablesModel = require('../model/trackables');
 
 const trackablesService = {
-  getTrackables() {
-    return trackablesModel.getTrackables();
-  },
 
   addTrackable(trackable) {
     return trackablesModel.addTrackable(trackable);
   },
 
-  getTrackableById(id) {
-    return trackablesModel.getTrackableById(id);
+  getTrackables(userId) {
+    return trackablesModel.getTrackables(userId);
   },
 
-  getTrackablesByUser(userId) {
-    return trackablesModel.getTrackablesByUser(userId);
+  getBooleanTrackables(userId) {
+    return trackablesModel.getBooleanTrackables(userId);
   },
+
+  getQuantitativeTrackables(userId) {
+    return trackablesModel.getQuantitativeTrackables(userId);
+  },
+
+  // getTrackableById(id) {
+  //   return trackablesModel.getTrackableById(id);
+  // },
 
   // deleteTrackable(id) { // consider cascade
   // return trackablesModel.deleteTrackable(id)
