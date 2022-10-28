@@ -3,12 +3,6 @@ const express = require('express');
 const router = express.Router();
 const usersService = require('../service/users');
 
-router.get('/', (req, res) => {
-  usersService.getUsers()
-    .then((data) => res.send(data))
-    .catch(() => res.status(500).send());
-});
-
 router.get('/:id', (req, res) => {
   usersService.getUserById(req.params.id)
     .then((data) => res.send(data))
