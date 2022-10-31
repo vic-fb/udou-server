@@ -17,7 +17,6 @@ CREATE TABLE `trackables`(
     `type` VARCHAR(255) NOT NULL,
     `unit` VARCHAR(255),
     `color` VARCHAR(255) NOT NULL,
-    `icon` VARCHAR(255) NOT NULL,
     `active` TINYINT(1) NOT NULL
 );
 
@@ -39,14 +38,14 @@ VALUES
     ('Vicky', 'vicky@test.com'),
     ('Bjork', 'bjork@test.com');
 
-INSERT INTO trackables (user_id, name, type, unit, color, icon, active)
+INSERT INTO trackables (user_id, name, type, unit, color, active)
 VALUES
-    (1, "Meditation", "boolean", null, "grey", "any", 1),
-    (1, "Weight", "quantitative", "kg", "pink", "any", 1),
-    (1, "Zumba", "boolean", null, "green", "any", 1),
-    (1, "Dessert", "boolean", null, "black", "any", 0),
-    (1, "Waist", "quantitative", "cm", "yellow", "any", 1),
-    (1, "Bloating", "boolean", null, "blue", "any", 1);
+    (1, "Meditation", "boolean", null, "grey", 1),
+    (1, "Weight", "quantitative", "kg", "pink", 1),
+    (1, "Zumba", "boolean", null, "green", 1),
+    (1, "Dessert", "boolean", null, "black", 0),
+    (1, "Waist", "quantitative", "cm", "yellow", 1),
+    (1, "Bloating", "boolean", null, "blue", 1);
 
 INSERT INTO entries (trackable_id, date, boolean_value, quantitative_value)
 VALUES
