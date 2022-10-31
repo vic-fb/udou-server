@@ -18,9 +18,9 @@ const trackablesService = {
     return trackablesModel.getQuantitativeTrackables(userId);
   },
 
-  // getTrackableById(id) {
-  //   return trackablesModel.getTrackableById(id);
-  // },
+  getTrackableById(id) {
+    return trackablesModel.getTrackableById(id);
+  },
 
   // deleteTrackable(id) { // consider cascade
   // return trackablesModel.deleteTrackable(id)
