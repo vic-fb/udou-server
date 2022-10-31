@@ -16,12 +16,14 @@ const entriesModel = {
       .then((result) => result.data);
   },
 
-  addEntry({ trackableId, date, value }) {
-    return db(`INSERT INTO entries (trackable_id, date, value) VALUES (${trackableId},'${date}', ${value})`)
+  addEntry({
+    trackable_id, date, boolean_value = null, quantitative_value = null,
+  }) {
+    return db(`INSERT INTO entries (trackable_id, date, boolean_value, quantitative_value) VALUES (${trackable_id},'${date}', ${boolean_value}, ${quantitative_value})`)
       .then((result) => result.data);
   },
 
-  getEntriesByMonth(month) { // YYYY-MM
+  getEntriesByMonth(month) { // YYYY-MM TODO update to get only user monthly entries
     return db(`SELECT * FROM entries WHERE date LIKE '%${month}%'`)
       .then((result) => result.data);
   },
@@ -29,15 +31,6 @@ const entriesModel = {
   //   deleteEntry(id) {
   //     return db(`DELETE FROM boolean_entries WHERE id = ${id}`)
   //   },
-
-  // SELECT
-  // product_name,
-  // order_id
-  // FROM
-  // production.products p
-  // LEFT JOIN sales.order_items o ON o.product_id = p.product_id
-  // ORDER BY
-  // order_id;
 
 };
 
