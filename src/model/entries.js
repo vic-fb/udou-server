@@ -23,8 +23,10 @@ const entriesModel = {
       .then((result) => result.data);
   },
 
-  getEntriesByMonth(month) { // YYYY-MM TODO update to get only user monthly entries
-    return db(`SELECT * FROM entries WHERE date LIKE '%${month}%'`)
+  getEntriesByDateRange(trackableId, startDate, endDate) {
+    return db(
+      `SELECT * from entries WHERE (entries.trackable_id = ${trackableId}) AND (entries.date BETWEEN '${startDate}' AND '${endDate}')`,
+    )
       .then((result) => result.data);
   },
 

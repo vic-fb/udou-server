@@ -22,8 +22,9 @@ router.post('/', (req, res) => {
     .catch((error) => res.status(error.status || 500).send());
 });
 
-router.get('/:user/:month', (req, res) => {
-  entriesService.getEntriesByMonth(req.params.month)
+router.get('/:trackableId/:startDate/:endDate', (req, res) => {
+  entriesService
+    .getEntriesByDateRange(req.params.trackableId, req.params.startDate, req.params.endDate)
     .then((data) => res.send(data))
     .catch(() => res.status(500).send());
 });

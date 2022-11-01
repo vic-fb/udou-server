@@ -18,17 +18,14 @@ const entriesService = {
         : Promise.reject({ status: errorType.FORBIDDEN, message: 'Trackable is not active' })));
   },
 
-  getEntriesByMonth(month) { // YYYY-MM
-    return entriesModel.getEntriesByMonth(month);
+  getEntriesByDateRange(trackableId, startDate, endDate) {
+    return entriesModel.getEntriesByDateRange(trackableId, startDate, endDate);
   },
 
   // deleteEntry() {
   //
   // },
 
-  // getUserTrackables() {
-  //
-  // }
 };
 
 module.exports = entriesService;
