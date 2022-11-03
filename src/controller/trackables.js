@@ -16,13 +16,13 @@ router.post('/', (req, res) => {
     .catch(() => res.status(500).send());
 });
 
-router.get('/boolean/:user', (req, res) => {
+router.get('/:user/boolean', (req, res) => {
   trackablesService.getBooleanTrackables(req.params.user)
     .then((data) => res.send(data))
     .catch(() => res.status(500).send());
 });
 
-router.get('/quantitative/:user', (req, res) => {
+router.get('/:user/quantitative', (req, res) => {
   trackablesService.getQuantitativeTrackables(req.params.user)
     .then((data) => res.send(data))
     .catch(() => res.status(500).send());
