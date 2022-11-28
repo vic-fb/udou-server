@@ -1,25 +1,4 @@
-# U do U documentation
+# About UdoU
 
-## Getting started
-Create a .env file in the udou-server folder, it should include:
-
-###
-DB_HOST=localhost\
-DB_USER=root\
-DB_PASS=root\
-DB_NAME=u_do_u\
-TZ=UTC
-
-In the project directory, you can run:
-
-### `npm install`
-Get started by installing everything you need from the package.json
-
-### From your sql terminal, create a database named `u_do_u`.
-
-### `npm run migrate`
-Initialize the database from init_db.sql
-
-### `npm start`
-
-Runs the server in the development mode at http://localhost:5000
+We are all unique.
+UdoU is a customizable wellness tracker. You can create your own custom trackables, add entries and get insights.
