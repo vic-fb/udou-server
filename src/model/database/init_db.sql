@@ -12,7 +12,7 @@ CREATE TABLE `users`(
 
 CREATE TABLE `trackables`(
     `id` INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    `user_id` INT UNSIGNED NOT NULL,
+    `userId` INT UNSIGNED NOT NULL,
     `name` VARCHAR(255) NOT NULL,
     `type` VARCHAR(255) NOT NULL,
     `unit` VARCHAR(255),
@@ -22,23 +22,23 @@ CREATE TABLE `trackables`(
 
 CREATE TABLE `entries`(
     `id` INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    `trackable_id` INT UNSIGNED NOT NULL,
+    `trackableId` INT UNSIGNED NOT NULL,
     `date` DATE NOT NULL,
-    `boolean_value` TINYINT(1) NULL,
-    `quantitative_value` DOUBLE(8, 2) NULL
+    `booleanValue` TINYINT(1) NULL,
+    `quantitativeValue` DOUBLE(8, 2) NULL
 );
 
 ALTER TABLE
-    `trackables` ADD CONSTRAINT `trackables_user_id_foreign` FOREIGN KEY(`user_id`) REFERENCES `users`(`id`);
+    `trackables` ADD CONSTRAINT `trackables_userId_foreign` FOREIGN KEY(`userId`) REFERENCES `users`(`id`);
 ALTER TABLE
-    `entries` ADD CONSTRAINT `boolean_entries_trackable_id_foreign` FOREIGN KEY(`trackable_id`) REFERENCES `trackables`(`id`);
+    `entries` ADD CONSTRAINT `entries_trackableId_foreign` FOREIGN KEY(`trackableId`) REFERENCES `trackables`(`id`);
 
 INSERT INTO users (name, email)
 VALUES
     ('Vicky', 'vicky@test.com'),
     ('Bjork', 'bjork@test.com');
 
-INSERT INTO trackables (user_id, name, type, unit, color, active)
+INSERT INTO trackables (userId, name, type, unit, color, active)
 VALUES
     (1, "Meditation", "boolean", null, "grey", 1),
     (1, "Weight", "quantitative", "kg", "pink", 1),
@@ -47,7 +47,7 @@ VALUES
     (1, "Waist", "quantitative", "cm", "yellow", 1),
     (1, "Bloating", "boolean", null, "blue", 1);
 
-INSERT INTO entries (trackable_id, date, boolean_value, quantitative_value)
+INSERT INTO entries (trackableId, date, booleanValue, quantitativeValue)
 VALUES
     (2, '2022-10-26' , null, 75.0),
     (3, '2022-10-26', null, 68),

@@ -10,22 +10,22 @@ const entriesModel = {
     return db(
       `SELECT trackables.*, entries.*
              FROM trackables
-             LEFT JOIN entries ON entries.trackable_id = trackables.id 
-             WHERE trackables.user_id = ${userId} AND entries.date = '${date}'`,
+             LEFT JOIN entries ON entries.trackableId = trackables.id 
+             WHERE trackables.userId = ${userId} AND entries.date = '${date}'`,
     )
       .then((result) => result.data);
   },
 
   addEntry({
-    trackable_id, date, boolean_value = null, quantitative_value = null,
+    trackableId, date, booleanValue = null, quantitativeValue = null,
   }) {
-    return db(`INSERT INTO entries (trackable_id, date, boolean_value, quantitative_value) VALUES (${trackable_id},'${date}', ${boolean_value}, ${quantitative_value})`)
+    return db(`INSERT INTO entries (trackableId, date, booleanValue, quantitativeValue) VALUES (${trackableId},'${date}', ${booleanValue}, ${quantitativeValue})`)
       .then((result) => result.data);
   },
 
   getEntriesByDateRange(trackableId, startDate, endDate) {
     return db(
-      `SELECT * from entries WHERE (entries.trackable_id = ${trackableId}) AND (entries.date BETWEEN '${startDate}' AND '${endDate}')`,
+      `SELECT * from entries WHERE (entries.trackableId = ${trackableId}) AND (entries.date BETWEEN '${startDate}' AND '${endDate}')`,
     )
       .then((result) => result.data);
   },

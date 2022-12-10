@@ -3,21 +3,21 @@ const db = require('./database/helper');
 const trackablesModel = {
 
   getTrackables(userId) {
-    return db(`SELECT * FROM trackables WHERE user_id = ${userId}`).then((result) => result.data);
+    return db(`SELECT * FROM trackables WHERE userId = ${userId}`).then((result) => result.data);
   },
 
   addTrackable({
-    user_id, name, type, unit, color, active,
+    userId, name, type, unit, color, active,
   }) {
-    return db(`INSERT INTO trackables (user_id, name, type, unit, color, active) VALUES (${user_id}, '${name}','${type}', '${unit}', '${color}', ${active})`);
+    return db(`INSERT INTO trackables (userId, name, type, unit, color, active) VALUES (${userId}, '${name}','${type}', '${unit}', '${color}', ${active})`);
   },
 
   getBooleanTrackables(userId) {
-    return db(`SELECT * FROM trackables WHERE user_id = ${userId} AND type = 'boolean'`).then((result) => result.data);
+    return db(`SELECT * FROM trackables WHERE userId = ${userId} AND type = 'boolean'`).then((result) => result.data);
   },
 
   getQuantitativeTrackables(userId) {
-    return db(`SELECT * FROM trackables WHERE user_id = ${userId} AND type = 'quantitative'`).then((result) => result.data);
+    return db(`SELECT * FROM trackables WHERE userId = ${userId} AND type = 'quantitative'`).then((result) => result.data);
   },
 
   getTrackableById(id) {

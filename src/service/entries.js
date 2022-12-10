@@ -12,7 +12,7 @@ const entriesService = {
   },
 
   addEntry(entry) {
-    return trackablesService.getTrackableById(entry.trackable_id)
+    return trackablesService.getTrackableById(entry.trackableId)
       .then((result) => (result.active
         ? entriesModel.addEntry(entry)
         : Promise.reject({ status: errorType.FORBIDDEN, message: 'Trackable is not active' })));
