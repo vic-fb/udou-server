@@ -7,13 +7,15 @@ const { DB_USER } = process.env;
 const { DB_PASS } = process.env;
 const { DB_NAME } = process.env;
 
-const con = mysql.createConnection({
+const DATABASE = {
   host: DB_HOST || '127.0.0.1',
   user: DB_USER || 'root',
   password: DB_PASS,
   database: DB_NAME,
   multipleStatements: true,
-});
+};
+
+const con = mysql.createConnection(process.env.CLEARDB_DATABASE_URL || DATABASE);
 
 con.connect((err) => {
   if (err) throw err;
