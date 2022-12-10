@@ -1,7 +1,4 @@
 SET foreign_key_checks = 0;
-DROP TABLE IF EXISTS `users`;
-DROP TABLE IF EXISTS `trackables`;
-DROP TABLE IF EXISTS `entries`;
 SET foreign_key_checks = 1;
 
 CREATE TABLE `users`(
