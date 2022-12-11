@@ -20,7 +20,7 @@ module.exports = function db(query) {
       multipleStatements: true,
     };
 
-    const con = mysql.createConnection(process.env.CLEARDB_DATABASE_URL || DATABASE);
+    const con = mysql.createConnection(process.env.JAWSDB_URL || DATABASE);
 
     con.connect((err) => {
       if (err) throw err;
