@@ -35,7 +35,6 @@ ALTER TABLE
 
 INSERT INTO users (name, email)
 VALUES
-    ('Vicky', 'vicky@test.com'),
     ('Bjork', 'bjork@test.com');
 
 INSERT INTO trackables (userId, name, type, unit, color, active)
